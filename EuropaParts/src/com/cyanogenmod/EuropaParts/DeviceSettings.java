@@ -23,6 +23,7 @@ public class DeviceSettings extends PreferenceActivity {
 	public static String PROP_HEADSET_ATTN = "persist.sys.headset-attn";
 	public static String PROP_FM_ATTN = "persist.sys.fm-attn";
 	public static String PROP_COMPCACHE = "persist.service.compcache";
+	public static String PROP_COMPCACHE_RO = "ro.compcache.default";
 	public static String PROP_KSM = "persist.sys.ksm";
 
 	public static CharSequence[] attn = { "Disabled", "1 dB",
@@ -182,8 +183,13 @@ public class DeviceSettings extends PreferenceActivity {
 			Swap.setChecked(false);
 		}
 
-		String isCompcacheON = Command.getprop(PROP_COMPCACHE);
-		if (isCompcacheON.equals("0")) {
+		String isCompcacheON = Command.getprop(PROP_COMPCACHE); // persist
+
+		if (isCompcacheON.equals("")) {
+			isCompcacheON = Command.getprop(PROP_COMPCACHE_RO); // use read-only prop instead
+		}
+
+		if (isCompcacheON.equals("0") || isCompcacheON.equals("")) {
 			Swap.setEnabled(true);
 		} else {
 			Swap.setEnabled(false);
