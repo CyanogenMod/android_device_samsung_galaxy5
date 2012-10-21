@@ -581,11 +581,11 @@ static const str_map flash[] = {
 // from mm-camera/common/camera.h.
 static const str_map iso[] = {
     { CameraParameters::ISO_AUTO,  CAMERA_ISO_AUTO},
-    { CameraParameters::ISO_HJR,   CAMERA_ISO_DEBLUR},
+//    { CameraParameters::ISO_HJR,   CAMERA_ISO_DEBLUR},
     { CameraParameters::ISO_100,   CAMERA_ISO_100},
     { CameraParameters::ISO_200,   CAMERA_ISO_200},
     { CameraParameters::ISO_400,   CAMERA_ISO_400},
-    { CameraParameters::ISO_800,   CAMERA_ISO_800 }
+//    { CameraParameters::ISO_800,   CAMERA_ISO_800 }
 };
 
 
